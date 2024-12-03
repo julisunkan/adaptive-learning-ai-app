@@ -1,36 +1,42 @@
 
-Adaptive Learning App
+#Adaptive Learning App
 This project is a simple web-based adaptive learning application built with HTML, CSS, and JavaScript. The app provides interactive lessons with feedback, tracks the user's progress, and adapts based on the correctness of their answers. The goal is to simulate the concept of adaptive learning where the system adjusts based on user performance.
 
-Features
+#Features
 Interactive multiple-choice questions.
 Provides feedback after each question (correct/incorrect).
 Tracks and displays user progress as a percentage.
 Moves to the next question once the user submits an answer.
 Simple and easy-to-understand interface.
-Technologies Used
+
+#Technologies Used
 HTML: For structure and layout.
 CSS: For styling the interface and making the app visually appealing.
 JavaScript: For managing app logic, tracking answers, and dynamically updating progress.
-How to Run
+
+#How to Run
 Requirements
 A web browser (Google Chrome, Mozilla Firefox, etc.)
-Steps to Run
+
+#Steps to Run
 Clone or download this repository.
 Open the index.html file in your browser.
 The app will load, and you can begin answering questions.
-Application Flow
+
+#Application Flow
 The user is presented with a math question and four possible answers.
 After selecting an answer, feedback is shown indicating whether the answer was correct or incorrect.
 The user progresses to the next question by clicking the "Next Lesson" button.
 The app tracks the user’s progress and displays the percentage of correct answers based on their performance.
-File Structure
+
+#File Structure
 /Adaptive-Learning-App
 │
 ├── index.html         # Main HTML file containing structure and logic
 ├── styles.css         # Styling for the app
 └── app.js             # JavaScript for logic and interactivity
-Example Usage
+
+#Example Usage
 When you open the app in a browser, you will see a math question like:
 
 What is 2 + 2?
