@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Learning App</title>
+    <style>
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #progress {
+            margin-top: 20px;
+        }
+
+        #lesson-container {
+            margin-bottom: 20px;
+        }
+
+        #feedback {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Adaptive Learning App</h1>
+        <div id="lesson-container">
+            <div id="lesson">
+                <p id="question">What is 2 + 2?</p>
+                <button class="answer" onclick="submitAnswer(4)">4</button>
+                <button class="answer" onclick="submitAnswer(5)">5</button>
+                <button class="answer" onclick="submitAnswer(6)">6</button>
+                <button class="answer" onclick="submitAnswer(7)">7</button>
+            </div>
+            <div id="feedback">
+                <p id="feedback-message"></p>
+                <button onclick="nextLesson()">Next Lesson</button>
+            </div>
+        </div>
+        <div id="progress">
+            <p>Progress: <span id="progress-text">0%</span></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript logic
+        let currentLesson = 0;
+        let correctAnswers = 0;
+        const totalQuestions = 5; // Example of 5 questions per lesson
+
+        const lessons = [
+            { question: "What is 2 + 2?", answer: 4 },
+            { question: "What is 3 + 5?", answer: 8 },
+            { question: "What is 7 - 4?", answer: 3 },
+            { question: "What is 10 / 2?", answer: 5 },
+            { question: "What is 6 * 3?", answer: 18 }
+        ];
+
+        function submitAnswer(selectedAnswer) {
+            const correctAnswer = lessons[currentLesson].answer;
+            const feedback = document.getElementById("feedback");
+            const feedbackMessage = document.getElementById("feedback-message");
+
+            // Check if the selected answer is correct
+            if (selectedAnswer === correctAnswer) {
+                correctAnswers++;
+                feedbackMessage.textContent = "Correct! Well done.";
+            } else {
+                feedbackMessage.textContent = "Incorrect, try again next time!";
+            }
+
+            // Show feedback
+            feedback.style.display = "block";
+            updateProgress();
+        }
+
+        function nextLesson() {
+            // Move to the next question
+            currentLesson++;
+
+            if (currentLesson >= totalQuestions) {
+                // All lessons completed
+                document.getElementById("lesson-container").innerHTML = "<h2>Well done! You've completed all lessons.</h2>";
+            } else {
+                const questionElement = document.getElementById("question");
+                questionElement.textContent = lessons[currentLesson].question;
+
+                // Hide feedback and reset
+                document.getElementById("feedback").style.display = "none";
+            }
+        }
+
+        function updateProgress() {
+            const progressText = document.getElementById("progress-text");
+            const progress = (correctAnswers / (currentLesson + 1)) * 100;
+            progressText.textContent = `${Math.round(progress)}%`;
+        }
+    </script>
+</body>
+</html>
