@@ -1,5 +1,6 @@
 
 #Adaptive Learning App
+
 *This project is a simple web-based adaptive learning application built with HTML, CSS, and JavaScript. The app provides interactive lessons with feedback, tracks the user's progress, and adapts based on the correctness of their answers. The goal is to simulate the concept of adaptive learning where the system adjusts based on user performance.
 
 #Features
